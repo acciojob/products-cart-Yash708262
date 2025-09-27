@@ -4,7 +4,7 @@ import "./../styles/App.css";
 const App = () => {
   // Sample product list
   const products = [
-    { id: 1, name: "Laptop" },
+     { id: 1, name: "Samsung Galaxy Fold 4" },
     { id: 2, name: "Mobile" },
     { id: 3, name: "Headphones" },
     { id: 4, name: "Smartwatch" },
@@ -42,7 +42,7 @@ const App = () => {
       <div className="cart">
         <h2>Shopping Cart</h2>
         {cart.length === 0 ? (
-          <p>No items in the cart</p>
+          <p>There are no items in the cart</p>
         ) : (
           <ul>
             {cart.map((item) => (
