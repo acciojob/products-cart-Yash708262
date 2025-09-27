@@ -14,30 +14,25 @@ const App = () => {
 
   const [cart, setCart] = useState([]);
 
-  // Add product to cart with unique key
+  // Add product to cart
   const addToCart = (product) => {
-    const uniqueKey = Date.now() + Math.random();
-    setCart([...cart, { ...product, key: uniqueKey }]);
+    setCart([...cart, { ...product, key: Date.now() }]);
   };
 
   // Remove product from cart
-  const removeFromCart = (key) => {
-    setCart(cart.filter((item) => item.key !== key));
+  const removeFromCart = (productId) => {
+    setCart(cart.filter((item) => item.id !== productId));
   };
 
   return (
     <div>
-      {/* Do not remove the main div */}
-
       {/* Products List */}
       <div className="container">
         <h2>Products</h2>
         {products.map((product) => (
           <div key={product.id} className="item">
-            <span className="item-text">{product.name}</span>
-            <button className="add-btn" onClick={() => addToCart(product)}>
-              Add Item
-            </button>
+            <span>{product.name}</span>
+            <button onClick={() => addToCart(product)}>Add Item</button>
           </div>
         ))}
       </div>
@@ -49,12 +44,10 @@ const App = () => {
           <p>There are no items in the cart</p>
         ) : (
           <ul>
-            {cart.map((item) => (
-              <li key={item.key} className="cart-item">
-                <span className="cart-item-text">{item.name}</span>
-                <button className="remove-btn" onClick={() => removeFromCart(item.key)}>
-                  Remove
-                </button>
+            {cart.map((item, index) => (
+              <li key={item.key || index}>
+                {item.name}
+                <button onClick={() => removeFromCart(item.id)}>Remove</button>
               </li>
             ))}
           </ul>
