@@ -4,8 +4,8 @@ import "./../styles/App.css";
 const App = () => {
   // Sample product list
   const products = [
-     { id: 1, name: "Samsung Galaxy Fold 4" },
-     { id: 2, name: "Iphone 14 Pro" },
+    { id: 1, name: "Samsung Galaxy Fold 4" },
+    { id: 2, name: "Iphone 14 Pro" },
     { id: 3, name: "Pixel 5" },
     { id: 4, name: "Mi note 6" },
     { id: 5, name: "FireStick" },
@@ -34,8 +34,10 @@ const App = () => {
         <h2>Products</h2>
         {products.map((product) => (
           <div key={product.id} className="item">
-            <span>{product.name}</span>
-            <button onClick={() => addToCart(product)}>Add Item</button>
+            <span className="item-text">{product.name}</span>
+            <button className="add-btn" onClick={() => addToCart(product)}>
+              Add Item
+            </button>
           </div>
         ))}
       </div>
@@ -48,9 +50,11 @@ const App = () => {
         ) : (
           <ul>
             {cart.map((item) => (
-              <li key={item.key}>
-                {item.name}
-                <button onClick={() => removeFromCart(item.key)}>Remove</button>
+              <li key={item.key} className="cart-item">
+                <span className="cart-item-text">{item.name}</span>
+                <button className="remove-btn" onClick={() => removeFromCart(item.key)}>
+                  Remove
+                </button>
               </li>
             ))}
           </ul>
