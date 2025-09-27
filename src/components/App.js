@@ -38,7 +38,7 @@ const App = () => {
       <div className="cart">
         <h2>Shopping Cart</h2>
         {cart.length === 0 ? (
-          <p>No items in the cart</p>
+          <p>There are no items in the cart</p>
         ) : (
           cart.map((item) => (
             <div key={item.key}>
