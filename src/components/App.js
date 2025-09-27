@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./../styles/App.css";
 
 const App = () => {
-  // Sample product list
   const products = [
     { id: 1, name: "Samsung Galaxy Fold 4" },
     { id: 2, name: "Iphone 14 Pro" },
@@ -14,12 +13,10 @@ const App = () => {
 
   const [cart, setCart] = useState([]);
 
-  // Add product to cart
   const addToCart = (product) => {
     setCart([...cart, { ...product, key: Date.now() }]);
   };
 
-  // Remove product from cart
   const removeFromCart = (productId) => {
     setCart(cart.filter((item) => item.id !== productId));
   };
@@ -41,16 +38,14 @@ const App = () => {
       <div className="cart">
         <h2>Shopping Cart</h2>
         {cart.length === 0 ? (
-          <p>There are no items in the cart</p>
+          <p>No items in the cart</p>
         ) : (
-          <ul>
-            {cart.map((item, index) => (
-              <li key={item.key || index}>
-                {item.name}
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
-              </li>
-            ))}
-          </ul>
+          cart.map((item) => (
+            <div key={item.key}>
+              {item.name}
+              <button onClick={() => removeFromCart(item.id)}>Remove Item</button>
+            </div>
+          ))
         )}
       </div>
     </div>
