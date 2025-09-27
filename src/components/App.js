@@ -5,9 +5,11 @@ const App = () => {
   // Sample product list
   const products = [
      { id: 1, name: "Samsung Galaxy Fold 4" },
-    { id: 2, name: "Mobile" },
-    { id: 3, name: "Headphones" },
-    { id: 4, name: "Smartwatch" },
+     { id: 2, name: "Iphone 14 Pro" },
+    { id: 3, name: "Pixel 5" },
+    { id: 4, name: "Mi note 6" },
+    { id: 5, name: "FireStick" },
+    { id: 6, name: "OnePlus Nord" },
   ];
 
   const [cart, setCart] = useState([]);
